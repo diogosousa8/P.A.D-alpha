@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de análise</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="Assets/logo-espcex.png" type="image/x-icon">
+
+</head>
+<body>
+  <header>
+    <h1>Análise de Desempenho em Questões</h1>
+    <img src="Assets/logo-espcex.png" alt="logo" class="logo-espcex">
+  </header>
+  
+  <div class="container">
+    <section id="subjects">
+      <h2>Matérias:</h2>
+      <div id="subjectList" class="subjectList"></div>
+      <button id="addSubjectBtn" onclick="showAddSubjectDialog()">Adicionar Matéria</button>
+    </section>
+
+    <section id="questions">
+      <h2>Questões:</h2>
+      <label for="selectSubject">Matéria:</label>
+      <select id="selectSubject" onchange="updateQuestionListAndPerformance()"></select>
+      <div id="questionList"></div>
+      <button id="addQuestionBtn" onclick="showAddQuestionDialog()">Adicionar Questão</button>
+    </section>
+    
+      
+
+    <!-- Modal para adicionar matérias -->
+    <div id="addSubjectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddSubjectDialog()">&times;</span>
+      <h2>Adicionar Matéria</h2>
+      <input type="text" id="newSubject" placeholder="Digite o nome da matéria">
+      <button onclick="addSubject()">Adicionar</button>
+    </div>
+    </div>
+
+   <!-- Modal para adicionar questões -->
+    <div id="addQuestionModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAddQuestionDialog()">&times;</span>
+        <h2>Adicionar Questão</h2>
+        <label>Matéria:</label>
+        <select id="selectSubjectModal"></select>
+        <input type="number" id="correctAnswersInput" placeholder="Acertos">
+        <span>/</span>
+        <input type="number" id="totalQuestionsInput" placeholder="Total de Questões">
+        <button onclick="addQuestion()">Adicionar</button>
+      </div>
+    </div>
+
+  <section id="performance">
+    <h2>Desempenho:</h2>
+    <div id="performanceTabs"></div>
+  </section>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
